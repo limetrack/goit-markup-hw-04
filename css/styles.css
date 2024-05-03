@@ -115,10 +115,19 @@ header li {
   margin: 0 20px;
 }
 
+.section {
+  margin: 0 auto;
+}
+
 .container {
-  max-width: 1158px;
+  width: 1158px;
   margin: 0 auto;
   padding: 20px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .contacts {
@@ -131,6 +140,10 @@ header li {
 
 .hero {
   background-color: var(--hero-background);
+  background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)), url('../images/hero.jpeg');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero .container {
