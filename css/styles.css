@@ -7,7 +7,7 @@
   --subtle-text: #8E8F99;
   --accent: #E7E9FC;
   --light: #F4F4FD;
-  --modal-overlay: #2E2F42;
+  --modal-overlay: #2E2F4266;
   --hero-background: #2E2F42;
   --white: #FFFFFF;
   --modal-background: #FCFCFC;
@@ -130,6 +130,12 @@ header li {
   justify-content: space-between;
 }
 
+.current {
+  color: var(--pressed-state);
+  /* border-bottom: 4px solid var(--pressed-state);
+  border-radius: 2px; */
+}
+
 .contacts {
   display: flex;
 }
@@ -182,6 +188,16 @@ header li {
   flex: 1;
 }
 
+.advantages-icon {
+  width: 100%;
+  height: 112px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light);
+  margin-bottom: 10px;
+}
+
 .title {
   text-align: center;
   margin: 0 auto;
@@ -214,6 +230,47 @@ header li {
   border-radius: 0px, 0px, 4px, 4px;
   box-shadow: 0px 1px 6px 0px #2E2F4214;
   background-color: var(--white);
+}
+
+.team li img {
+  margin-bottom: 32px;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px 0 32px;
+}
+
+.contact {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-brand);
+  border-radius: 50%;
+}
+
+.customer {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 100px;
+  padding: 0;
+}
+
+.customer li {
+  background-color: var(--white);
+  border: 1px solid var(--subtle-text);
+  border-radius: 4px;
+  width: 168px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .filter-list {
@@ -252,6 +309,11 @@ header li {
 .portfolio-gallery li {
   border-radius: 0px, 0px, 4px, 4px;
   box-shadow: 0px 1px 6px 0px #2E2F4214;
+  padding-bottom: 32px;
+}
+
+.portfolio-gallery li img {
+  margin-bottom: 32px;
 }
 
 .portfolio-gallery li p,
@@ -259,9 +321,31 @@ header li {
   margin-left: 20px;
 }
 
+.overlay {
+  text-align: center;
+  padding: 40px 32px;
+  width: 360px;
+  height: 300px;
+  position: absolute;
+  background-color: var(--primary-brand);
+  color: var(--light);
+  opacity: 0;
+}
+
+.portfolio-gallery li:hover .overlay,
+.portfolio-gallery li:focus .overlay {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
 .footer {
-  text-align: left;
+  display: flex;
   padding: 100px 0;
+  gap: 120px;
+}
+
+.footer-about {
+  text-align: left;
   max-width: 264px;
 }
 
@@ -269,7 +353,11 @@ footer a {
   color: var(--accent);
 }
 
-.visually-hidden {
+.social {
+  max-width: 240px;
+}
+
+.social .visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -280,4 +368,56 @@ footer a {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+
+  background-color: var(--modal-overlay);
+
+  transition: 0.3ms;
+  transition-property: opacity, visibility;
+  transition-delay: 0ms;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 500ms;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(1);
+  width: 408px;
+  min-height: 584px;
+  background-color: var(--modal-background);
+  border-radius: 15px;
+
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.42, 0, 0.21, 1.5);
+  transition-property: transform, opacity;
+  transition-delay: 600ms;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translateX(-50%) translateY(-50%) scale(0.3);
+  opacity: 0;
+  transition-delay: 0ms;
+}
+
+.modal-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
