@@ -140,8 +140,16 @@ header li {
   border-radius: 2px; */
 }
 
-.contacts {
+.address {
   display: flex;
+}
+
+.logo {
+  font-family: 'Raleway';
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 21px;
+  margin-right: 76px;
 }
 
 .logo-prefix {
